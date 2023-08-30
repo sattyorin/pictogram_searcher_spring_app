@@ -1,0 +1,1 @@
+#pictogram_searcher_spring_app
