@@ -1,40 +1,40 @@
 import java.io.File
 
 plugins {
-	java
-	id("org.springframework.boot") version "3.1.3"
-	id("io.spring.dependency-management") version "1.1.3"
+  java
+  id("org.springframework.boot") version "3.1.3"
+  id("io.spring.dependency-management") version "1.1.3"
 }
 
 group = "pictosearcher"
 version = "0.0.1-SNAPSHOT"
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_17
+  sourceCompatibility = JavaVersion.VERSION_17
 }
 
 configurations {
-	compileOnly {
-		extendsFrom(configurations.annotationProcessor.get())
-	}
+  compileOnly {
+    extendsFrom(configurations.annotationProcessor.get())
+  }
 }
 
 repositories {
-	mavenCentral()
+  mavenCentral()
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-webflux")
-	implementation("org.springframework.boot:spring-boot-starter-aop")
+  implementation("org.springframework.boot:spring-boot-starter-webflux")
+  implementation("org.springframework.boot:spring-boot-starter-aop")
   implementation("jakarta.validation:jakarta.validation-api")
-	compileOnly("org.projectlombok:lombok")
-	annotationProcessor("org.projectlombok:lombok")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("io.projectreactor:reactor-test")
+  compileOnly("org.projectlombok:lombok")
+  annotationProcessor("org.projectlombok:lombok")
+  testImplementation("org.springframework.boot:spring-boot-starter-test")
+  testImplementation("io.projectreactor:reactor-test")
 }
 
 tasks.withType<Test> {
-	useJUnitPlatform()
+  useJUnitPlatform()
 }
 
 tasks["bootRun"].dependsOn("buildReact", "copyReact")
