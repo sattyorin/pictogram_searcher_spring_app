@@ -38,9 +38,10 @@ public class FetchPictoController {
    * @param text the text query used for searching pictogram
    * @return a Mono containing the Picto ID, or an empty Mono if not found
    */
-  @CrossOrigin(origins = "http://localhost:3000")
+  // If you use a different port from the frontend, set CrossOrigin.
+  // @CrossOrigin(origins = "http://localhost:3000")
   @GetMapping("/fetch")
-  public Mono<Integer> fetchData(@RequestParam("text") String text) {
+  public Mono<Integer[]> fetchData(@RequestParam("text") String text) {
     return searchPictoClientClient.callApi(text).map(dto -> dto.getPictoId());
   }
 

@@ -11,5 +11,5 @@ import lombok.Getter;
 public class SearchPictoResponseDto {
   private String success;
   private String message;
-  private Integer pictoId;
+  private Integer[] pictoId;
 }
